@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> | Portfolio</title>
+
+    <!-- Font Awesome CSS for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Bootstrap CSS for styling and responsiveness -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        xintegrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <!-- Google Fonts - Poppins for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* Ensures padding and borders are included in element's total width and height */
+        }
+
+        body {
+            /* Updated Background: A new deep blue with subtle white dots for texture */
+            background-color: rgb(145, 142, 142);
+            /* A darker, richer navy blue */
+            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            /* Very faint white dots */
+            background-size: 20px 20px;
+            /* Controls the spacing of the dots */
+
+            color: rgb(0, 0, 0);
+            /* Default text color */
+            font-family: 'Poppins', sans-serif;
+            /* Font style for the entire page */
+        }
+
+        /* Navbar Styling */
+        nav {
+            display: flex;
+            /* Uses flexbox for layout */
+            justify-content: space-around;
+            /* Distributes space evenly between items */
+            align-items: center;
+            /* Vertically aligns items in the center */
+            height: 80px;
+            /* Fixed height for the navbar */
+            background-color: rgb(0, 0, 0);
+            /* Dark blue background for the navbar */
+            position: sticky;
+            /* Makes the navbar stick to the top when scrolling */
+            top: 0;
+            /* Sticks to the top edge */
+            z-index: 1000;
+            /* Ensures navbar stays on top of other content */
+        }
+
+        .left {
+            font-size: 2rem;
+            /* Larger font size for the name */
+            color: white;
+            /* White color for the name */
+            text-decoration: none;
+            /* Removes underline from the link */
+        }
+
+        nav ul {
+            display: flex;
+            /* Uses flexbox for horizontal list items */
+            list-style: none;
+            /* Removes bullet points from list */
+            margin-bottom: 0;
+            /* Removes default bottom margin from Bootstrap */
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            /* Horizontal spacing between navigation links */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            /* Removes underline */
+            color: white;
+            /* White color for links */
+            font-weight: 500;
+            /* Medium font weight */
+            transition: color 0.3s, background-color 0.3s;
+            /* Smooth transition for hover effects */
+            padding: 8px 12px;
+            /* Padding around links */
+            border-radius: 5px;
+            /* Slightly rounded corners for link background */
+            display: inline-block;
+            /* Allows padding and transitions to work correctly */
+        }
+
+        nav ul li a:hover {
+            color: #000000;
+            /* Black text on hover */
+            background-color: #ea3c3c;
+            /* White background on hover */
+        }
+
+        /* First Section (Hero Section) Styling */
+        .firstsection {
+            display: flex;
+            /* Uses flexbox for side-by-side layout of text and image */
+            justify-content: space-around;
+            /* Distributes space around content */
+            align-items: center;
+            /* Vertically aligns content in the center */
+            margin: 80px 0;
+            /* Top and bottom margin */
+            padding: 0 20px;
+            /* Horizontal padding */
+        }
+
+        .leftsection {
+            width: 50%;
+            /* Takes up half the width */
+            font-size: 2.5rem;
+            /* Font size for hero text */
+        }
+
+        .rightsection {
+            width: 50%;
+            /* Takes up half the width */
+            text-align: center;
+            /* Centers the image */
+        }
+
+        .rightsection img {
+            max-width: 80%;
+            /* Limits image width to 80% of its container for responsiveness */
+            height: auto;
+            /* Maintains aspect ratio */
+            border-radius: 50%;
+            /* Makes the image circular */
+            box-shadow: 5px 3px 6px rgb(147, 17, 17);
+            /* Adds a cyan glow effect */
+            transition: transform 0.8s ease;
+            /* Smooth transition for hover effect */
+        }
+
+        .rightsection img:hover {
+            transform: scale(1.08);
+            /* Slightly enlarges image on hover */
+        }
+
+        .purple {
+            color: rgb(94, 82, 223);
+            /* Cyan color for highlight */
+            font-weight: bolder;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .blue {
+            color: rgb(94, 82, 223);
+            /* Bright cyan color for highlight */
+            font-weight: bolder;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        /* About Section Styling */
+        #about :hover {
+            color: rgb(230, 28, 54);
+            padding: 10px 10px;
+            /* Padding for the section */
+            text-align: center;
+            /* Centers text content */
+        }
+
+        #about h2 {
+            font-size: 2.5rem;
+            /* Font size for section heading */
+            margin-bottom: 20px;
+            /* Space below heading */
+            color: rgb(228, 221, 221);
+            background-color: #000000;
+        }
+
+        #about p {
+            max-width: 900px;
+            /* Maximum width for paragraph text */
+            margin: auto;
+            /* Centers the paragraph */
+            font-size: 1.1rem;
+            /* Font size for paragraph */
+            line-height: 1.6;
+            /* Line height for readability */
+            font-weight: bold 5px;
+            font-size: larger;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        /* Profile Cards Section Styling (HackerRank, LeetCode, LinkedIn) */
+        .profile-card {
+            background-color: rgb(5, 0, 2);
+            /* Darker blue background for cards */
+            color: white;
+            /* White text color */
+            border-radius: 20px;
+            /* Rounded corners for cards */
+            padding: 30px;
+            /* Inner padding */
+            transition: transform 0.4s ease, box-shadow 0.5s ease;
+            /* Smooth transition for hover effects */
+            height: 100%;
+            /* Ensures all cards in a row have the same height */
+            display: flex;
+            /* Uses flexbox for content arrangement */
+            flex-direction: column;
+            /* Stacks content vertically */
+            justify-content: space-between;
+            /* Distributes space to push button to bottom */
+            cursor: pointer;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-15px);
+            /* Lifts card up on hover */
+            box-shadow: 0 10px 25px red;
+            /* Adds a glowing shadow on hover */
+        }
+
+        .profile-card h4 {
+            font-size: 1.5rem;
+            /* Font size for card titles */
+            margin-bottom: 15px;
+            /* Space below title */
+        }
+
+        .profile-card p {
+            font-size: 1rem;
+            /* Font size for card descriptions */
+            margin-bottom: 20px;
+            /* Space below description */
+            flex-grow: 1;
+            /* Allows paragraph to take up available space */
+        }
+
+        .profile-card a.btn {
+            font-weight: bold;
+            /* Bold text for buttons */
+            transition: 0.4s ease;
+            /* Smooth transition for button hover */
+        }
+
+        .profile-card a.btn:hover {
+            background-color: rgb(224, 199, 199);
+            /* White background on button hover */
+            color: rgb(0, 0, 0);
+            /* Dark blue text on button hover */
+            border-color: rgb(252, 2, 2);
+            /* White border on button hover */
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            /* Larger icon size */
+            margin-bottom: 15px;
+            /* Space below icon */
+            color: rgb(210, 19, 19);
+            /* Cyan color for icons */
+        }
+
+        /* Carousel Sections (Skills and Certifications) Styling */
+        .carousel-container {
+            background-color: rgb(0, 0, 0);
+            /* Darker blue background for carousel containers */
+            border-radius: 15px;
+            /* Rounded corners */
+            padding: 30px;
+            /* Inner padding */
+            height: 100%;
+            /* Ensures carousel containers have consistent height */
+            cursor: pointer;
+        }
+         .carousel-container:hover {
+            transform: translateY(-10px);
+            /* Lifts card up on hover */
+            box-shadow: 0 10px 25px rgb(255, 0, 0);
+            /* Adds a glowing shadow on hover */
+        }
+
+        .carousel-item i {
+            font-size: 8rem;
+            /* Large icon size for carousel items */
+            margin: 30px auto;
+            /* Center the icons and add vertical margin */
+            display: block;
+            /* Make it a block element to center with margin auto */
+        }
+
+        .carousel-item img {
+            max-height: 300px;
+            /* Controls image height for consistency */
+            width: auto;
+            /* Maintains aspect ratio */
+            margin: auto;
+            /* Centers the image */
+            object-fit: contain;
+            /* Ensures image fits within its bounds without cropping */
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.6);
+            /* Semi-transparent black background for captions */
+            border-radius: 10px;
+            /* Rounded corners for captions */
+            padding: 10px;
+            /* Padding within captions */
+            bottom: 20px;
+            /* Position from the bottom */
+        }
+
+        /* Projects Section Styling */
+        #projects {
+            padding: 50px 20px;
+            /* Padding for the section */
+        }
+
+        .project-card {
+            background-color: rgb(28, 28, 70);
+            /* Darker blue background for project cards */
+            border-radius: 15px;
+            /* Rounded corners */
+            padding: 20px;
+            /* Inner padding */
+            height: 100%;
+            /* Ensures all cards in a row have the same height */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transition for hover effects */
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            /* Lifts card up on hover */
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
+            /* Adds a glowing shadow on hover */
+        }
+
+        .project-card img {
+            width: 100%;
+            /* Full width within the card */
+            height: 200px;
+            /* Fixed height for project images */
+            object-fit: cover;
+            /* Ensures image covers the area without distortion */
+            border-radius: 10px;
+            /* Rounded corners for image */
+            margin-bottom: 15px;
+            /* Space below image */
+        }
+
+        .project-card h5 {
+            font-size: 1.25rem;
+            /* Font size for project titles */
+            margin-bottom: 10px;
+            /* Space below title */
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            /* Font size for project descriptions */
+            color: #ccc;
+            /* Lighter gray color for description */
+            flex-grow: 1;
+            /* Allows paragraph to take available space */
+        }
+
+        .project-card a.btn {
+            margin-top: 10px;
+            /* Space above buttons */
+        }
+
+        /* Contact Section Styling */
+        #contact {
+            padding: 50px 20px;
+            /* Padding for the section */
+            background-color: rgb(145, 142, 142);
+            /* Dark blue background for contact section */
+        }
+
+        .form-control,
+        .form-control:focus {
+            background-color: #000000;
+            /* Dark background for form inputs */
+            border: 1px solid #ff0000;
+            /* Cyan border for inputs */
+            color: white;
+            /* White text color in inputs */
+        }
+
+        .form-control::placeholder {
+            color: #ccc;
+            /* Lighter gray for placeholder text */
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: rgb(0, 0, 0);
+            /* Dark blue background for footer */
+            text-align: center;
+            /* Centers content */
+            padding: 20px;
+            /* Padding around footer content */
+        }
+
+        .social-icons a {
+            color: white;
+            /* White color for social icons */
+            font-size: 1.5rem;
+            /* Size of social icons */
+            margin: 0 10px;
+            /* Spacing between social icons */
+            transition: color 0.3s ease;
+            /* Smooth transition for hover effect */
+        }
+
+        .social-icons a:hover {
+            color: rgb(255, 0, 64);
+            /* Cyan color on hover */
+        }
+
+        /* Responsive Styles (for screens smaller than 768px) */
+        @media (max-width: 768px) {
+            .firstsection {
+                flex-direction: column;
+                /* Stacks content vertically on small screens */
+                text-align: center;
+                /* Centers text */
+            }
+
+            .leftsection,
+            .rightsection {
+                width: 100%;
+                /* Full width on small screens */
+            }
+
+            .leftsection {
+                font-size: 2rem;
+                /* Adjusted font size for small screens */
+                margin-bottom: 30px;
+                /* Space below text section */
+            }
+
+            .rightsection img {
+                width: 70%;
+                /* Adjust image width on small screens */
+            }
+
+            nav {
+                flex-direction: column;
+                /* Stacks navbar items vertically */
+                height: auto;
+                /* Auto height for stacked items */
+                padding: 10px 0;
+                /* Vertical padding */
+            }
+
+            nav ul {
+                margin-top: 10px;
+                /* Space above nav links */
+            }
+
+            nav ul li {
+                margin: 0 8px;
+                /* Reduced horizontal spacing for nav links */
+            }
+
+            .profile-card p {
+                font-size: 0.9rem;
+                /* Smaller font size for card descriptions */
+            }
+
+            .carousel-caption h5 {
+                font-size: 1rem;
+                /* Smaller font size for carousel caption titles */
+            }
+
+            .carousel-caption p {
+                font-size: 0.8rem;
+                /* Smaller font size for carousel caption text */
+            }
+        }
+        #services h2{
+            color: #000000;
+
+        
+        }
+        #services p{
+            font-size: x-large;
+        }
+        .col-lg-6 h4{
+            color: bisque;
+            margin-top: 15px;
+        }
+        .container span{
+            color: #000000;
+        }
+        .btn-outline-info:hover{
+            color: #ff0000;
+        }
+        .btn-outline-info:hover {
+            background-color: rgb(215, 215, 215);
+            /* White background on button hover */
+            color: rgb(0, 0, 0);
+            /* Dark blue text on button hover */
+            
+            /* White border on button hover */
+             box-shadow: 5px 3px 6px rgb(147, 17, 17);
+            /* Adds a cyan glow effect */
+            transition: transform 0.10s ease;
+        }
+        .col-md-6 p{
+            color: aliceblue;
+
+        }
+        #about span{
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">
+                <a href="#home" class="left"></a>
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section: Introduction to Rajat singh -->
+        <section class="firstsection" id="home">
+            <div class="leftsection">
+                Hi, My name is <span class="purple">Rajat Singh</span> <br>
+                and I am a <span class="blue">BCA</span> Undergraduate
+            </div>
+            <div class="rightsection">
+                <!-- Placeholder image for portfolio; replace with your professional photo -->
+                <img src="rajat.jpg" alt="Portfolio image">
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- About Me Section: Detailed self-introduction -->
+        <section id="about" class="container my-5 text-center">
+            <h2 class="display-4">
+                <span class="orange">About</span> Me</h2>
+            <p>
+                "I,am pursuing a Bachelor of Computer Applications, driven by a deep enthusiasm for technology and problem‑solving. My current focus lies in sharpening my expertise in web development as well as data structures and algorithms. Exploring new tools and frameworks excites me, and I enjoy turning them into practical, efficient solutions. This website reflects my growth as a developer and the ambitions I’m working toward.
+                
+            </p>
+        </section>
+
+        <!-- Social Profile Section: Links to coding and professional profiles -->
+        <div class="container text-center my-5">
+            <div class="row g-4 justify-content-center">
+                <!-- HackerRank Profile Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="profile-card">
+                        <div>
+                            <i class="fab fa-hackerrank icon"></i>
+                            <h4>HackerRank</h4>
+                            <p>Check out my coding profile on HackerRank where I solve problems in C++, Java, and
+                                Python.</p>
+                        </div>
+                        <a href="https://www.hackerrank.com/profile/24116002405rajat" class="btn btn-outline-info"
+                            target="_blank">View Profile</a>
+                    </div>
+                </div>
+
+                <!-- LeetCode Profile Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="profile-card">
+                        <div>
+                            <i class="fas fa-code icon"></i>
+                            <h4>LeetCode</h4>
+                            <p>Explore my LeetCode profile to see my progress in DSA and competitive coding challenges.
+                            </p>
+                        </div>
+                        <a href="https://leetcode.com/u/rajatsingh123/" class="btn btn-outline-info" target="_blank">View
+                            Profile</a>
+                    </div>
+                </div>
+
+                <!-- LinkedIn Profile Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="profile-card">
+                        <div>
+                            <i class="fab fa-linkedin icon"></i>
+                            <h4>LinkedIn</h4>
+                            <p>Connect with me on LinkedIn to view my resume, projects, and professional updates.</p>
+                        </div>
+                        <a href="https://www.linkedin.com/in/rajat-singh-27a93032a?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BPZSNf2ISTBCJkk1I8F4mgQ%3D%3D"
+                            class="btn btn-outline-info" target="_blank">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Skills and Certifications Section: Showcase of abilities and achievements -->
+        <div class="container text-center my-5" id="services">
+            <h2 class="display-4">My Skills & Certifications</h2>
+            <p>What I've learned and what I've achieved so far.</p>
+            <div class="row g-4 justify-content-center mt-4">
+                <!-- Skills Carousel -->
+                <div class="col-lg-6">
+                    <div class="carousel-container p-4">
+                        <h4>My Skills</h4>
+                        <div id="skillsCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#skillsCarousel" data-bs-slide-to="0"
+                                    class="active"></button>
+                                <button type="button" data-bs-target="#skillsCarousel" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#skillsCarousel" data-bs-slide-to="2"></button>
+                                <button type="button" data-bs-target="#skillsCarousel" data-bs-slide-to="3"></button>
+                                <button type="button" data-bs-target="#skillsCarousel" data-bs-slide-to="4"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <!-- Font Awesome icons replace placeholder images for skills -->
+                                    <i class="fab fa-html5 fa-5x text-info"></i>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>HTML & CSS</h5>
+                                        <p>Proficient in front-end fundamentals.</p>
+                                    </div>
+                                </div>
+                                 <div class="carousel-item">
+                                    <!-- <i class="devicon-c-plain"></i> -->
+                                   <i class="fab fa-js fa-5x text-warning"></i>
+
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Javascript</h5>
+                                        <p>Have prior knowledge of Javascript</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <!-- <i class="devicon-c-plain"></i> -->
+                                    <i class="fab fa-c fa-5x text-warning"></i>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>C</h5>
+                                        <p>Strong in Fundamentals of C.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <!-- <i class="devicon-c-plain"></i> -->
+                                    <i class="fab fa-c fa-5x text-warning"></i>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Event management</h5>
+                                        <p>Strong leadership and management</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <!-- <i class="devicon-c-plain"></i> -->
+                                    <i class="fab fa-python fa-5x text-warning"></i>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Python</h5>
+                                        <p>Strong in Fundamentals of Python.</p>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <i class="fab fa-bootstrap fa-5x text-purple"></i>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Bootstrap</h5>
+                                        <p>Responsive design with Bootstrap.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <i class="fas fa-terminal fa-5x text-success"></i>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Data Structures & Algorithms</h5>
+                                        <p>Solid foundation in DSA with C++.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <i class="fab fa-git-alt fa-5x text-danger"></i>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Git & GitHub</h5>
+                                        <p>Version control and collaboration.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Carousel navigation buttons -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#skillsCarousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#skillsCarousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications Carousel -->
+                <div class="col-lg-6">
+                    <div class="carousel-container p-4">
+                        <h4>My Certifications</h4>
+                        <div id="certificationsCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#certificationsCarousel" data-bs-slide-to="0"
+                                    class="active"></button>
+                                <button type="button" data-bs-target="#certificationsCarousel"
+                                    data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#certificationsCarousel"
+                                    data-bs-slide-to="2"></button>
+                                     <button type="button" data-bs-target="#certificationsCarousel"
+                                    data-bs-slide-to="3"></button>
+                            </div>
+                            <div class="carousel-inner">
+
+                                 <div class="carousel-item active">
+                                    <img src="Screenshot (11).png" class="d-block w-100" alt="Certification 3">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Data Science Professional</h5>
+                                        <p>Issued by Oracle</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <!-- Placeholder images for certifications; replace with actual cert images -->
+                                    <img src="Screenshot (12).png" class="d-block w-100" alt="Certification 1">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Programming fundamentals using python -1</h5>
+                                        <p>Issued by Infosyssprinboard</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="Screenshot (13).png" class="d-block w-100" alt="Certification 2">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Cocepts in Python</h5>
+                                        <p>Issued by HP Courseera</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="Screenshot (14).png" class="d-block w-100" alt="Certification 3">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>HTML5</h5>
+                                        <p>Issued by Infosyssprinboard</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <!-- Placeholder images for certifications; replace with actual cert images -->
+                                    <img src="Screenshot (15).png" class="d-block w-100" alt="Certification 5">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>AI Concepts and strategy</h5>
+                                        <p>Issued by Courseera</p>
+                                    </div>
+                                </div>
+                                <!-- <div class="carousel-item">
+                                    <img src="ICONSDG.jpg" class="d-block w-100" alt="Certification 4">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Ateended ICONSDG</h5>
+                                        <p>Issued by PSIT College of Higher Education</p>
+                                    </div>
+                                    </div> -->
+                            </div>
+                            <!-- Carousel navigation buttons -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#certificationsCarousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#certificationsCarousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Projects Section: Showcase your work -->
+        <section id="projects" class="container my-5 text-center">
+            <h2 class="display-4"><span class="purple">My</span> Projects</h2>
+            <p>A few of my recent works.</p>
+            <div class="row g-4 mt-4">
+                <!-- Project Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="Robot.png" alt="3D Robot Model">
+                        <h5>Unique Robot Moving Landing Page</h5>
+                        <p>A Unique and Interactive Landing Page with Robot Moving along Cursor HTML, CSS, JavaScript and Spline.</p>
+                        <a href="https://pulkit-seth.github.io/3D-Robot-Landing-Page/" class="btn btn-outline-info me-2" target="_blank">Live Demo</a>
+                        <a href="https://github.com/Pulkit-seth/3D-Robot-Landing-Page" class="btn btn-outline-info" target="_blank">GitHub Repo</a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="Avengers.png" alt="Avengers Page">
+                        <h5>Dedicated Avengers Page</h5>
+                        <p>A Unique and eye‑catching animated webpage featuring five Avengers heroes. Move your cursor to reveal the next hero hidden behind the current one, and tap or click to switch to that hero with smooth Shery.js effects.</p>
+                        <a href="https://pulkit-seth.github.io/Dedicated-Avengers-Page/" class="btn btn-outline-info me-2" target="_blank">Live Demo</a>
+                        <a href="https://github.com/Pulkit-seth/Dedicated-Avengers-Page" class="btn btn-outline-info" target="_blank">GitHub Repo</a>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="TODO-app.png" alt="Project 3 Image">
+                        <h5>To Do App</h5>
+                        <p>A responsive to-do app built with HTML, CSS, and JavaScript that lets users add, edit, and delete tasks with data saved in localStorage.</p>
+                        <a href="https://pulkit-seth.github.io/Dedicated-Avengers-Page/" class="btn btn-outline-info me-2" target="_blank">Live Demo</a>
+                        <a href="https://github.com/Pulkit-seth/To-Do-List" class="btn btn-outline-info" target="_blank">GitHub Repo</a>
+                    </div>
+                </div>
+
+
+
+                <div class="row g-4 mt-4">
+                <!-- Project Card 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="Calculator.png" alt="Arithmetic-Calculator">
+                        <h5>Arithmetic Calculator</h5>
+                        <p>A simple and responsive Arithmetic Calculator built using HTML, CSS, and JavaScript.</p>
+                        <a href="https://pulkit-seth.github.io/Arithmetic-Calculator/" class="btn btn-outline-info me-2" target="_blank">Live Demo</a>
+                        <a href="https://github.com/Pulkit-seth/Arithmetic-Calculator" class="btn btn-outline-info" target="_blank">GitHub Repo</a>
+                    </div>
+                </div>
+                <!-- Project Card 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="Weatherapp.png" alt="Weather-App">
+                        <h5>Simple Weather Application</h5>
+                        <p>A responsive Weather App built with HTML, CSS, and JavaScript. Users can search any city to get real-time weather data, including temperature, humidity, wind speed, and conditions, fetched via a public API.</p>
+                        <a href="https://pulkit-seth.github.io/Weather-App/" class="btn btn-outline-info me-2" target="_blank">Live Demo</a>
+                        <a href="https://github.com/Pulkit-seth/Weather-App" class="btn btn-outline-info" target="_blank">GitHub Repo</a>
+                    </div>
+                </div>
+                <!-- Project Card 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="Soon.png" alt="To-Do-List">
+                        <h5>Coming Soon</h5>
+                        <p>A secret tool that elevates your AI experience. Stay tuned!</p>
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Contact Section: Form for visitors to reach out -->
+        <section id="contact" class="my-5">
+            <div class="container">
+                <h2 class="display-4 text-center"><span class="black">Contact</span> Me</h2>
+                <p class="text-center">Have a project in mind or just want to say hello? Fill out the form below!</p>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <!-- Simple mailto form; replace 'your_email@example.com' with your actual email -->
+                        <form action="mailto:2432427pulkit@gmail.com" method="post" enctype="text/plain">
+                            <div class="text-center">
+          
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn-outline-info">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer: Copyright and social media links -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p>&copy; 2025 .  Rajat Singh All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end social-icons">
+                    <!-- Social media links; remember to replace 'your_github_username' and 'your_email@example.com' -->
+                    <a href="https://www.linkedin.com/in/rajat-singh-27a93032a?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BwBPe%2FsneSYeiszzI12YxVQ%3D%3D"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/rajatsingh123-tech" target="_blank" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://mail.google.com/mail/u/0/#inbox" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                     
+                    <a href="https://www.instagram.com/rajat_singh_2800/" aria-label="insta"><i class="fa-brands fa-instagram"></i></a>
+
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle for interactive components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        xintegrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
